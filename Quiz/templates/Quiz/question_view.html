@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% block content %}
+<form method="POST">
+    <div class="container">
+      <div class="questionMain">
+        <div class="questionHeader">
+          <h1><a href="{% url 'addQuestion' %}">Pytanie {{ question_index }} z {{ num_questions }}</a></h1>
+        </div>
+        <div class="questionContent">
+          <h2>{{ current_question.question }}</h2>
+          {% csrf_token %}
+          <div class="contentAnswers">
+            <button type="radio" name="selected_option" value="{{ current_question.option_1 }}"> {{ current_question.option_1 }} </button>
+            <button type="radio" name="selected_option" value="{{ current_question.option_2 }}"> {{ current_question.option_2 }}</button>
+            <button type="radio" name="selected_option" value="{{ current_question.option_3 }}"> {{ current_question.option_3 }}</button>
+            <button type="radio" name="selected_option" value="{{ current_question.option_4 }}"> {{ current_question.option_4 }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+<a href="/admin">admin</a>
+{% endblock %}

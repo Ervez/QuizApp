@@ -1,0 +1,14 @@
+<h1>Quiz Results</h1>
+	<p>Your final score is: {{ score }}%</p>
+	{% if score >= 70 %}
+		<p>Congratulations, you passed!</p>
+	{% else %}
+		<p>Sorry, you did not pass. Please try again.</p>
+	{% endif %}
+	<p>Here are the questions you answered:</p>
+	<ul>
+		{% for question in questions %}
+			<li>{{ question.question }} - {% if answers|get:question.pk %}{% if answers[question.pk] %}Correct{% else %}Incorrect{% endif %}{% else %}Not answered{% endif %}</li>
+		{% endfor %}
+	</ul>
+	<a href="{% url 'quiz' 1 %}">Take the quiz again</a>
