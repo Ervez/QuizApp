@@ -1,3 +1,5 @@
+import time
+
 from django.shortcuts import redirect, render
 from django.contrib.auth import login, logout, authenticate
 from .forms import *
@@ -22,6 +24,7 @@ def question_view(request):
         'question_index': question_index,
     }
     if request.method == 'POST':
+        time.sleep(0.5)
         selected_option = request.POST['selected_option']
         if selected_option == current_question.answer:
             context['is_correct'] = True

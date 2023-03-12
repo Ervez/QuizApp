@@ -2,10 +2,12 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-family: 'Roboto', sans-serif;
     cursor: default;
 }
-  @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@mobile:    ~"only screen and (max-width: 768px)";
+@vivid-blue: #087cfc;
 body{
     width: 100%;
     div.container{
@@ -27,6 +29,10 @@ body{
                     font-size: 13px;
                     opacity: 0.8;
                     color: #4e5259;
+                    a{
+                        text-decoration: none;
+                        color: @vivid-blue;
+                    }
                 }
             }
             div.questionContent{
@@ -45,10 +51,58 @@ body{
                         min-width: 450px;
                         cursor: pointer;
                         margin: 5px;
+                        background-color: @vivid-blue;
                         padding: 10px;
+                        color: #fff;
+                        font-size: 18px;
+                        border: none;
+                        border-radius: 10px;
+                    }
+
+                    .scale-out-center {
+                        -webkit-animation: scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+                                animation: scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+                    }
+
+                    @keyframes scale-out-center {
+                        0% {
+                          -webkit-transform: scale(1);
+                                  transform: scale(1);
+                          opacity: 1;
+                        }
+                        100% {
+                          -webkit-transform: scale(0);
+                                  transform: scale(0);
+                          opacity: 1;
+                        }
+                      }
+                }
+            }
+        }
+    }
+}
+
+@media @mobile{
+    body{
+        div.container{
+            div.questionMain{
+                width: 300px;
+                div.questionHeader{
+                    h1{
+                    }
+                }
+                div.questionContent{
+                    h2{
+                        font-size: 18px;
+                    }
+                    div.contentAnswers{
+                        button{
+                            min-width: 250px;
+                        }
                     }
                 }
             }
         }
     }
 }
+

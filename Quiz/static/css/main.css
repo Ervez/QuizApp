@@ -2,15 +2,15 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: 'Roboto', sans-serif;
   cursor: default;
 }
 @font-face {
-  font-family: 'Barlow Semi Condensed';
+  font-family: 'Roboto';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 300;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/barlowsemicondensed/v14/wlpigxjLBV1hqnzfr-F8sEYMB0Yybp0mudRfw6-PAA.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5vAw.ttf) format('truetype');
 }
 body {
   width: 100%;
@@ -35,6 +35,10 @@ body div.container div.questionMain div.questionHeader h1 {
   opacity: 0.8;
   color: #4e5259;
 }
+body div.container div.questionMain div.questionHeader h1 a {
+  text-decoration: none;
+  color: #087cfc;
+}
 body div.container div.questionMain div.questionContent h2 {
   text-align: center;
   padding: 25px;
@@ -51,5 +55,37 @@ body div.container div.questionMain div.questionContent div.contentAnswers butto
   min-width: 450px;
   cursor: pointer;
   margin: 5px;
+  background-color: #087cfc;
   padding: 10px;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+}
+body div.container div.questionMain div.questionContent div.contentAnswers .scale-out-center {
+  -webkit-animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+@keyframes scale-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 768px) {
+  body div.container div.questionMain {
+    width: 300px;
+  }
+  body div.container div.questionMain div.questionContent h2 {
+    font-size: 18px;
+  }
+  body div.container div.questionMain div.questionContent div.contentAnswers button {
+    min-width: 250px;
+  }
 }

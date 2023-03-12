@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'static_precompiler',
     'Quiz',
+    'jquery',
 ]
 
 STATICFILES_FINDERS = (
