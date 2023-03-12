@@ -63,36 +63,8 @@ def addQuestion(request):
     else:
         return redirect('question_view')
 
-
-def registerPage(request):
-    if request.user.is_authenticated:
-        return redirect('question_view')
-    else:
-        form = CreateUserForm()
-        if request.method == 'POST':
-            form = CreateUserForm(request.POST)
-            if form.is_valid():
-                user = form.save()
-                return redirect('login')
-        context = {
-            'form': form,
-        }
-        return render(request, 'Quiz/register.html', context)
-
-
-def loginPage(request):
-    if request.user.is_authenticated:
-        return redirect('question_view')
-    else:
-        if request.method == "POST":
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('/')
-        context = {}
-        return render(request, 'Quiz/login.html', context)
+def home(request):
+    return render(request, 'Quiz/home.html')
 
 
 def logoutPage(request):

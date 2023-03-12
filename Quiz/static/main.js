@@ -7,4 +7,11 @@ $(document).ready(function() {
                 anim = false;
         });
     });
+
+    setTimeout(() => {
+        $('.homePageInfo').addClass('slide-in-bck-center');
+        setTimeout(() => {
+            $('.quizStart').addClass('wobble-hor-bottom');
+        }, 500);
+    }, 1000);
 })
